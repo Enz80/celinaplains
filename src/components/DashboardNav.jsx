@@ -35,7 +35,7 @@ const DashboardNav = () => {
   }, []);
   
   return (
-    <Navbar className="fixed z-50 w-full drop-shadow-2xl" bg="light" expand="lg">
+    <Navbar className="fixed z-50 w-full drop-shadow-2xl bg-glass" expand="lg">
         <Container>
             <Navbar.Brand href="/">Celina Plains</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -44,7 +44,7 @@ const DisplayAppointments = () => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <div className='h-screen p-8 bg-white drop-shadow-2xl'>
+      <div className='h-screen p-8 bg-glass drop-shadow-2xl'>
         <h1 className="text-5xl font-semibold font-poppins">Appointments</h1>
         {appointments.length === 0 ? (
           <p>No appointments found.</p>
