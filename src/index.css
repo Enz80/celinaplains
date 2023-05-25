@@ -23,3 +23,11 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.bg-glass {
+  @apply bg-[rgba(255,255,255,0.1)] backdrop-blur-[10px];
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}

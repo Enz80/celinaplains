@@ -76,7 +76,7 @@ function LoginPage() {
       className="flex flex-col items-center justify-center w-screen h-screen font-medium align-middle text-slate-800 font-poppins">
       <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
       <Navbar />
-      <form onSubmit={handleSignIn} className="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded-2xl drop-shadow-2xl">
+      <form onSubmit={handleSignIn} className="bg-glass flex flex-col items-center justify-center gap-4 p-4 rounded-2xl drop-shadow-2xl">
         <div className="flex">
           <img src={logo} alt="logo" className="w-[96px] mx-auto"/> 
           <h1 className="text-[64px] drop-shadow-2xl">Celina Plains</h1>
