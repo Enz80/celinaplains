@@ -28,28 +28,30 @@ const NewsFeedPage = () => {
       <Navbar />
       <div className="flex flex-col h-screen pt-[100px] px-10">
         <span className="text-2xl font-semibold text-white font-poppins">Celina Plains Imus</span>
-        <div className="w-1/4 p-4 overflow-y-auto bg-white rounded-xl">
+        <div className="overflow-x-auto w-full p-4 bg-white rounded-xl">
           <h1 className="mb-4 text-2xl font-bold">News Feed</h1>
-          {newsFeed.map((item) => (
-            <div key={item.id} className="flex mb-4">
-              {item.data && (
-                <img
-                  src={item.data}
-                  alt="News Feed"
-                  className="object-cover w-[450px] mr-4 rounded-lg"
-                />
-              )}
-              <div className="flex flex-col">
-                <h2 className="text-lg font-bold">{item.postTitle}</h2>
-                <p className="font-medium text-slate-800">{item.postCaption}</p>
-                {item.createdAt && (
-                  <p className="text-gray-500 text-md">
-                    {new Date(item.createdAt).toLocaleString()}
-                  </p>
+          <div className="flex gap-4">
+            {newsFeed.map((item) => (
+              <div key={item.id} className="flex flex-col bg-white rounded-lg shadow-lg w-80">
+                {item.data && (
+                  <img
+                    src={item.data}
+                    alt="News Feed"
+                    className="w-full h-[450px] object-cover rounded-t-lg"
+                  />
                 )}
+                <div className="p-4">
+                  <h2 className="mb-2 text-lg font-bold">{item.postTitle}</h2>
+                  <p className="mb-2 font-medium text-slate-800">{item.postCaption}</p>
+                  {item.createdAt && (
+                    <p className="text-gray-500 text-md">
+                      {new Date(item.createdAt).toLocaleString()}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </Suspense>
