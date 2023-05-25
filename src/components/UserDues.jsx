@@ -64,7 +64,7 @@ const UserDues = () => {
   );
 
   return (
-    <div className="flex flex-col justify-center p-2 m-8 font-medium bg-white border-2 border-blue-600 text-slate-800 rounded-2xl">
+    <div className="flex flex-col justify-center p-2 m-8 font-medium border-2 border-blue-600 bg-glass text-slate-800 rounded-2xl">
       <h2 className="mb-4 text-2xl font-bold">Monthly Dues</h2>
       <button onClick={handleReload} className="px-4 py-2 mb-4 text-white bg-blue-500 rounded-md shadow-md">
         Load Monthly Dues
@@ -82,7 +82,7 @@ const UserDues = () => {
               <td className="px-4 py-2 text-gray-600 border border-gray-500">
                 {getMonthName(parseInt(month), amount)}
               </td>
-              <td className="px-4 py-2 border-gray-500 text-gray-600border">{amount}</td>
+              <td className="px-4 py-2 text-gray-600 border border-gray-500">{amount}</td>
             </tr>
           ))}
         </tbody>
