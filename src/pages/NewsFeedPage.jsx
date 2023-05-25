@@ -28,16 +28,16 @@ const NewsFeedPage = () => {
       <Navbar />
       <div className="flex flex-col h-screen pt-[100px] px-10">
         <span className="text-2xl font-semibold text-white font-poppins">Celina Plains Imus</span>
-        <div className="overflow-x-auto w-full p-4 bg-white rounded-xl">
+        <div className="overflow-x-auto w-full p-4 bg-glass rounded-xl">
           <h1 className="mb-4 text-2xl font-bold">News Feed</h1>
           <div className="flex flex-col sm:flex-row gap-4">
             {newsFeed.map((item) => (
-              <div key={item.id} className="flex flex-col bg-white rounded-lg shadow-lg w-full sm:w-80">
+              <div key={item.id} className="flex flex-col bg-transparent rounded-lg shadow-lg w-full sm:w-80">
                 {item.data && (
                   <img
                     src={item.data}
                     alt="News Feed"
-                    className="w-full h-[450px] object-cover rounded-t-lg"
+                    className="w-full h-auto object-cover rounded-t-lg"
                   />
                 )}
                 <div className="p-4">

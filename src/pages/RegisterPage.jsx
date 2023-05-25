@@ -41,7 +41,7 @@ function RegisterPage() {
     <Navbar />
     <div className="justify-center">      
       <form onSubmit={handleSubmit} 
-        className="flex flex-col justify-center items-center gap-4 p-8 pt-[100px] rounded-2xl bg-glass drop-shadow-2xl"
+        className="flex flex-col justify-center items-center gap-4 p-8 rounded-2xl bg-glass drop-shadow-2xl"
         >
         <div className="flex">
           <img src={logo} alt="logo" className="w-[96px] mx-auto"/> 
