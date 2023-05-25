@@ -30,9 +30,9 @@ const NewsFeedPage = () => {
         <span className="text-2xl font-semibold text-white font-poppins">Celina Plains Imus</span>
         <div className="overflow-x-auto w-full p-4 bg-white rounded-xl">
           <h1 className="mb-4 text-2xl font-bold">News Feed</h1>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             {newsFeed.map((item) => (
-              <div key={item.id} className="flex flex-col bg-white rounded-lg shadow-lg w-80">
+              <div key={item.id} className="flex flex-col bg-white rounded-lg shadow-lg w-full sm:w-80">
                 {item.data && (
                   <img
                     src={item.data}
