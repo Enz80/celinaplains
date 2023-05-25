@@ -1,3 +1,7 @@
+/**
+ * The function returns a React component for a dashboard page with a navigation bar, appointments
+ * display, news feed, and background image.
+ */
 import React from 'react';
 import DashboardNav from '../components/DashboardNav';
 import DisplayAppointments from '../components/DIsplayAppointments';
@@ -5,17 +9,7 @@ import NewsFeed from '../components/NewsFeed';
 import bg from "../assets/bg-1.jpg"
 import { motion } from "framer-motion"
 
-/**
- * The function returns a JSX element representing a dashboard page with a navigation bar, appointments
- * display, and news feed.
- * @returns The `DashboardPage` component is being returned, which contains a `DashboardNav` component
- * and two child components `DisplayAppointments` and `NewsFeed` wrapped in a `div` element. The
- * `DashboardNav` component is a navigation bar, while `DisplayAppointments` and `NewsFeed` are
- * components that display appointments and news feed respectively. The `className` attribute is used
- * to
- */
 function DashboardPage() {
-
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -25,12 +19,12 @@ function DashboardPage() {
         delay: "0.5",
         duration: "1.4"
       }}
-      className="flex h-full font-poppins"
+      className="flex h-full bg-repeat font-poppins bg-background1"
       style={{ overflow: "hidden" }}>
-      <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
+      <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-repeat"/>
       <DashboardNav />
       <div className="pt-[80px]">
-        <div className="flex flex-row overflow-hidden justify-around px-[200px]">
+        <div className="flex flex-col justify-center gap-4 px-8 overflow-hidden md:flex-row">
           <DisplayAppointments />
           <NewsFeed />
         </div>
