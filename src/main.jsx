@@ -45,7 +45,7 @@ const router = createBrowserRouter(
     },
     {
       path: '/dashboard-admin',
-      element: userAuth ? <DashboardPage /> : <App />,
+      element: <DashboardPage />,
     },
     {
       path: '/dashboard-user',
