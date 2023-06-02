@@ -9,7 +9,7 @@ const DisplayAppointments = () => {
 
   useEffect(() => {
     fetchAppointments();
-  }, []);
+  }, [appointments]);
 
   const fetchAppointments = async () => {
     try {
