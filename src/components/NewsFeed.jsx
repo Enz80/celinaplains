@@ -38,7 +38,7 @@ const NewsFeed = () => {
           )}
           <div>
             <h2 className="pt-2 text-lg font-bold">{item.postTitle}</h2>
-            <p className="text-gray-700">{item.postCaption}</p>
+            <p className="text-gray-900">{item.postCaption}</p>
           </div>
         </div>
       ))}

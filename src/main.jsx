@@ -15,6 +15,7 @@ import NewsFeedPage from './pages/NewsFeedPage.jsx'
 import DisplayDuesPage from './pages/DisplayDuesPage.jsx'
 import EditMonthlyDuesPage from './pages/EditMonthlyDuesPage.jsx'
 import UserDashboardPage from './pages/UserDashboardPage.jsx'
+import RegisterUser from './components/RegisterUser.jsx'
 
 
 const userAuth = () => {
@@ -45,7 +46,7 @@ const router = createBrowserRouter(
     },
     {
       path: '/dashboard-admin',
-      element: <DashboardPage />,
+      element: userAuth ? <DashboardPage /> : <App />,
     },
     {
       path: '/dashboard-user',
@@ -79,6 +80,10 @@ const router = createBrowserRouter(
       path: "/editdues",
       element: <EditMonthlyDuesPage />,
     },
+    {
+      path: "/register-user",
+      element: <RegisterUser />,
+    }
   ]
 );
 
