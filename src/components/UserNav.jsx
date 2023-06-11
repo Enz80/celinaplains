@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { auth } from '../auth'
 import { useState, useEffect } from 'react';
+import ProfileButton from './ProfileButton';
 
 
 /**
@@ -50,6 +51,7 @@ const DashboardNav = () => {
                 <Nav.Link href="/appointment-user">Book an Appointment</Nav.Link>
             </Nav>
             <Nav>
+            <ProfileButton />
               {user ? (
                 <Nav.Link href="/" onClick={logout}>Logout</Nav.Link>
               ) : (

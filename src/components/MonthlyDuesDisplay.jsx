@@ -16,7 +16,12 @@ const MonthlyDuesDisplay = () => {
       .then(querySnapshot => {
         const duesData = [];
         querySnapshot.forEach(doc => {
-          const { userFullname, address, duesByDate } = doc.data();
+          const { userFullname, address, duesByDate,isAdmin } = doc.data();
+          
+          //remove admin accounts
+          if(isAdmin){
+            return
+          }
           const formattedDuesByDate = Object.entries(duesByDate || {}).reduce((acc, [month, value]) => {
             const monthName = getMonthName(month);
             acc[monthName] = value;
