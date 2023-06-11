@@ -72,7 +72,7 @@ const DashboardNav = () => {
             ) : (
               null
             )}
-            <Nav.Link href="/appointment">Book an Appointment</Nav.Link>
+            <Nav.Link href="/appointment">Appointment</Nav.Link>
             <Nav.Link href="/register-user">Register</Nav.Link>
           </Nav>
           <Nav>

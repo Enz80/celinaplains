@@ -17,6 +17,7 @@ const ProfileButton = () => {
 
     return (
         <Nav.Link className="relative">
+            {user?
             <div
                 className='flex items-center relative lg:justify-center'
             >
@@ -24,7 +25,7 @@ const ProfileButton = () => {
                 <div className='pl-2'>
                     {user?.email}
                 </div>
-            </div>
+            </div> :null}
         </Nav.Link>
     )
 }
