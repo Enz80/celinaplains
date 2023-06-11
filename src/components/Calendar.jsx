@@ -14,15 +14,17 @@ const Calendar = () => {
 
     const fetchAppointments = async () => {
         try {
-          const response = await axios.get('https://celinaplains-api.onrender.com/get-appointments');
-          const transformedAppointments = response.data.map(appointment => ({
+          const response = await axios.get('https://celinaplains-api.onrender.com/get-done-appointments');
+          const transformedAppointments = response.data
+          // .filter(appointment => appointment.appointmentStatus === 'accepted')
+          .map(appointment => ({
             title: appointment.email,
             start: appointment.appointmentTime,
             id: appointment.id,
             content: appointment.message,
             phoneNumber: appointment.phoneNumber,
           }));  
-          
+        
           console.log(transformedAppointments);
           setAppointments(transformedAppointments);
         } catch (error) {

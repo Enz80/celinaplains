@@ -4,7 +4,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa'
 const UserContainer = ({uid, handleClick, name, address, phoneNumber }) => {
     return (
 
-        <div className='bg-white m-2 p-2 w-2/5 drop-shadow-md w-full' onClick={()=>{
+        <div className='bg-white m-2 p-2 !w-2/5 !drop-shadow-md w-full' onClick={()=>{
             handleClick(uid)
             }}>
             <button >
