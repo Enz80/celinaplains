@@ -21,12 +21,9 @@ const Calendar = () => {
             id: appointment.id,
             content: appointment.message,
             phoneNumber: appointment.phoneNumber,
-            // get the appointmentStatus from appointments
-            // appointmentStatus: appointment.appointmentStatus
           }));  
           
           console.log(transformedAppointments);
-
           setAppointments(transformedAppointments);
         } catch (error) {
           console.error('Error fetching appointments:', error);
