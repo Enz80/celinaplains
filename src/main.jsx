@@ -17,7 +17,7 @@ import EditMonthlyDuesPage from './pages/EditMonthlyDuesPage.jsx'
 import UserDashboardPage from './pages/UserDashboardPage.jsx'
 import RegisterUser from './components/RegisterUser.jsx'
 import CalendarPage from './pages/CalendarPage.jsx'
-
+import StatsPage from './pages/StatsPage.jsx'
 
 const userAuth = () => {
   const [user, setUser] = useState(null);
@@ -56,6 +56,10 @@ const router = createBrowserRouter(
     {
       path: "/login",
       element: <LoginPage />,
+    },
+    {
+      path: "/statistics",
+      element: <StatsPage />,
     },
     {
       path: "/appointment",

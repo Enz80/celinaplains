@@ -41,11 +41,11 @@ function RegisterUser() {
     <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
     <div className="justify-center pt-36 mt-10">      
       <form onSubmit={handleSubmit} 
-        className="flex flex-col justify-center items-center gap-4 p-8 rounded-2xl bg-glass drop-shadow-2xl"
+        className="flex flex-col justify-center items-center gap-4 p-8 rounded-2xl bg-white drop-shadow-2xl"
         >
         <div className="flex">
           <img src={logo} alt="logo" className="w-[96px] mx-auto"/> 
-          <h1 className="text-[64px] drop-shadow-2xl">Celina Plains</h1>
+          <h1 className="text-[64px] drop-shadow-2xl ">Celina Plains</h1>
         </div>
         <div className="flex flex-col justify-center gap-1">
           <label 
@@ -56,7 +56,7 @@ function RegisterUser() {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="p-1 border-2 rounded-full"
+            className="border-gray-500 bg-slate-200 p-1 border-2 rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-center gap-1">
@@ -68,7 +68,7 @@ function RegisterUser() {
             id="fullname"
             value={fullname}
             onChange={(e) => setFullname(e.target.value)}
-            className="p-1 border-2 rounded-full"
+            className="border-gray-500 bg-slate-200 p-1 border-2 rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-center gap-1">
@@ -80,7 +80,7 @@ function RegisterUser() {
             id="address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            className="p-1 border-2 rounded-full"
+            className="border-gray-500 bg-slate-200 p-1 border-2 rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-center gap-1">
@@ -92,7 +92,7 @@ function RegisterUser() {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="p-1 border-2 rounded-full"
+            className=" border-gray-500 bg-slate-200 p-1 border-2 rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-center gap-1">
@@ -104,10 +104,10 @@ function RegisterUser() {
             id="password1"
             value={password1}
             onChange={(e) => setPassword1(e.target.value)}
-            className="p-1 border-2 rounded-full"
+            className="border-gray-500 bg-slate-200 p-1 border-2 rounded-lg"
           />
         </div>
-        <button type="submit" onClick={handleSubmit} className="px-4 py-2 mx-auto border-2 rounded-full">Register</button>
+        <button type="submit" onClick={handleSubmit} className="px-4 bg-[#167f7f] py-2 text-white hover:bg-[#0f5e5e] mx-auto border-2 rounded-lg">Register</button>
         <p>
           Already have an account? <Link to="/login">Login here!</Link>
         </p>

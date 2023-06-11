@@ -36,9 +36,9 @@ const DashboardNav = () => {
   }, []);
 
   return (
-    <Navbar className="fixed top-0 z-50 w-full drop-shadow-2xl bg-glassNav" expand="lg">
+    <Navbar className="fixed top-0 z-50 w-full drop-shadow-2xl bg-white" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Celina Plains</Navbar.Brand>
+        <Navbar.Brand href="/" className='text-[#167f7f]'><strong>Celina Plains</strong></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -54,6 +54,11 @@ const DashboardNav = () => {
             )}
             {user ? (
               <Nav.Link href="/managedues">View Dues</Nav.Link>
+            ) : (
+              null
+            )}
+            {user ? (
+              <Nav.Link href="/statistics">Statistics</Nav.Link>
             ) : (
               null
             )}
