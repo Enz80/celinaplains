@@ -37,7 +37,7 @@ function NavBar() {
 
 
   return (
-    <Navbar className="fixed top-0 z-50 w-full drop-shadow-2xl bg-glassNav" expand="lg">
+    <Navbar className="fixed top-0 z-50 w-full drop-shadow-2xl bg-white" expand="lg">
       <Container>
         <Navbar.Brand href="/"><img src={logo} className="w-[64px]"/></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

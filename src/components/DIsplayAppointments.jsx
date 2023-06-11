@@ -22,7 +22,7 @@ const DisplayAppointments = () => {
 
   const handleMakeAsDone = async (appointmentId, email, phoneNumber, appointmentTime, message) => {
     try {
-      // Delete the appointment from the "appointments" collection
+
       const appointmentStatus = "accepted"
       // Move the appointment to a different collection (e.g., "done-appointments")
       await axios.post('https://celinaplains-api.onrender.com/move-appointment', {
@@ -35,6 +35,7 @@ const DisplayAppointments = () => {
         // Add any additional fields from the appointment object that you want to store in the new collection
       });
 
+     // Delete the appointment from the "appointments" collection
       await axios.delete(`https://celinaplains-api.onrender.com/delete-appointment/${appointmentId}`);
 
       // Fetch the updated appointments list

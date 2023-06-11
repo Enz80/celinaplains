@@ -20,7 +20,7 @@ const ProfileButton = () => {
             <div
                 className='flex items-center relative lg:justify-center'
             >
-                <FaUserCircle />
+                <FaUserCircle fill='#167f7f' className='text-[20px]' />
                 <div className='pl-2'>
                     {user?.email}
                 </div>

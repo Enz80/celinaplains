@@ -53,7 +53,7 @@ const NewsFeedUploader = () => {
   };
 
   return (
-    <div className="max-w-sm p-8 mx-auto mt-8 bg-glass rounded-lg drop-shadow-2xl">
+    <div className="max-w-sm p-8 mx-auto mt-8 bg-white rounded-lg drop-shadow-2xl">
       <h1 className="mb-4 text-2xl font-bold">Upload News Feed</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -66,7 +66,7 @@ const NewsFeedUploader = () => {
             value={postTitle}
             onChange={(e) => setPostTitle(e.target.value)}
             required
-            className="w-full px-3 py-2 border-2 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border-2 bg-slate-200 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div className="mb-4">
@@ -78,7 +78,7 @@ const NewsFeedUploader = () => {
             value={postCaption}
             onChange={(e) => setPostCaption(e.target.value)}
             rows="4"
-            className="w-full px-3 py-2 border-2 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border-2 bg-slate-200 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></textarea>
         </div>
         <div className="mb-4">
@@ -96,7 +96,7 @@ const NewsFeedUploader = () => {
         <button
           type="submit"
           disabled={uploading}
-          className="w-full px-4 py-2 font-semibold text-white bg-glass rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full px-4 py-2 font-semibold text-white bg-[#167f7f] rounded-md hover:bg-[#0f5e5e] focus:outline-none focus:ring-2 focus:ring-blue-400"
         >
           {uploading ? 'Uploading...' : 'Upload'}
         </button>
