@@ -36,12 +36,11 @@ function RegisterUser() {
         delay: "0.5",
         duration: "1.2"
       }}
-      className='flex flex-col items-center justify-center w-screen h-screen font-medium align-middle bg-cover bg-background1 text-slate-800 font-poppins'>
+      className='flex flex-col items-center justify-center w-screen h-full font-medium align-middle bg-cover bg-background1 text-slate-800 font-poppins'>
     <DashboardNav />
-    <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
-    <div className="justify-center pt-36 mt-10">      
+    <div className="justify-center mt-[100px]">      
       <form onSubmit={handleSubmit} 
-        className="flex flex-col justify-center items-center gap-4 p-8 rounded-2xl bg-white drop-shadow-2xl"
+        className="flex flex-col justify-center mb-5 items-center gap-4 p-8 rounded-2xl bg-white drop-shadow-2xl"
         >
         <div className="flex">
           <img src={logo} alt="logo" className="w-[96px] mx-auto"/> 

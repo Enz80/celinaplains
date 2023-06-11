@@ -42,13 +42,10 @@ const DashboardNav = () => {
         <Navbar.Brand href="/">Celina Plains</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
+
           <Nav className="me-auto">
-            {user ? (
-              <Nav.Link href="/dashboard-user">Dashboard</Nav.Link>
-            ) : (
-              <Nav.Link href="/login">Login</Nav.Link>
-            )}
-            <Nav.Link href="/appointment-user">Book an Appointment</Nav.Link>
+            <Nav.Link href="/contact">Contact us</Nav.Link>
+            <Nav.Link href="/appointment-user">Appointment</Nav.Link>
           </Nav>
           <Nav>
 

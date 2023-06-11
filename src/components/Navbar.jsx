@@ -44,8 +44,8 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="font-semibold text-black me-auto font-poppins">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/#about">About</Nav.Link>
             <Nav.Link href="/contact">Contact us</Nav.Link>
+            <Nav.Link href="/newsfeed">News Feed</Nav.Link>
           </Nav>
           <Nav>
             {user ? (
@@ -57,9 +57,7 @@ function NavBar() {
               <Nav.Link href="/login" className="font-semibold text-blue-700 font-poppins">Login</Nav.Link>
             )}
           </Nav>
-          <Nav>
-            <Nav.Link href="/newsfeed" className="font-semibold text-blue-700 font-poppins">News Feed</Nav.Link>
-          </Nav>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
