@@ -45,8 +45,8 @@ const UsersList = ({ onUserSelect }) => {
 
   return (
     <div className="container px-4 pb-8 pt-[100px] mx-auto">
-      <h2 className="mb-4 text-lg text-center text-[50px] font-medium text-black pb-3"><strong>Users List</strong></h2>
-      <div className='flex flex-wrap justify-center '>
+      <h2 className="mb-4 text-lg text-center !text-[40px] font-medium text-black pb-3"><strong>Users List</strong></h2>
+      <div className='!flex !flex-wrap !justify-center'>
         {users.map(user => (
           <UserContainer
             key={user.id}
