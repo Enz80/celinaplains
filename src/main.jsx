@@ -16,6 +16,7 @@ import DisplayDuesPage from './pages/DisplayDuesPage.jsx'
 import EditMonthlyDuesPage from './pages/EditMonthlyDuesPage.jsx'
 import UserDashboardPage from './pages/UserDashboardPage.jsx'
 import RegisterUser from './components/RegisterUser.jsx'
+import CalendarPage from './pages/CalendarPage.jsx'
 
 
 const userAuth = () => {
@@ -79,6 +80,10 @@ const router = createBrowserRouter(
     {
       path: "/editdues",
       element: <EditMonthlyDuesPage />,
+    },
+    {
+      path: "/calendar",
+      element: <CalendarPage />,
     },
     {
       path: "/register-user",

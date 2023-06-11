@@ -29,52 +29,57 @@ const DashboardNav = () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
     });
-    
+
 
     // Clean up the subscription when the component unmounts
     return () => unsubscribe();
   }, []);
-  
+
   return (
     <Navbar className="fixed top-0 z-50 w-full drop-shadow-2xl bg-glassNav" expand="lg">
-        <Container>
-            <Navbar.Brand href="/">Celina Plains</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-                {user ? (
-                  <Nav.Link href="/dashboard-admin">Dashboard</Nav.Link>
-                ) : (
-                  <Nav.Link href="/login">Login</Nav.Link>
-                )}
-                {user ? (
-                  <Nav.Link href="/newsfeedupload">Upload Newsfeed</Nav.Link>
-                ) : (
-                  null
-                )}
-                {user ? (
-                  <Nav.Link href="/managedues">View Dues</Nav.Link>
-                ) : (
-                  null
-                )}
-                {user ? (
-                  <Nav.Link href="/editdues">Edit Dues</Nav.Link>
-                ) : (
-                  null
-                )}
-                <Nav.Link href="/appointment">Book an Appointment</Nav.Link>
-                <Nav.Link href="/register-user">Register</Nav.Link>
-            </Nav>
-            <Nav>
+      <Container>
+        <Navbar.Brand href="/">Celina Plains</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {user ? (
+              <Nav.Link href="/dashboard-admin">Dashboard</Nav.Link>
+            ) : (
+              <Nav.Link href="/login">Login</Nav.Link>
+            )}
+            {user ? (
+              <Nav.Link href="/newsfeedupload">Upload Newsfeed</Nav.Link>
+            ) : (
+              null
+            )}
+            {user ? (
+              <Nav.Link href="/managedues">View Dues</Nav.Link>
+            ) : (
+              null
+            )}
+            {user ? (
+              <Nav.Link href="/editdues">Edit Dues</Nav.Link>
+            ) : (
+              null
+            )}
+            {user ? (
+              <Nav.Link href="/calendar">Calendar</Nav.Link>
+            ) : (
+              null
+            )}
+            <Nav.Link href="/appointment">Book an Appointment</Nav.Link>
+            <Nav.Link href="/register-user">Register</Nav.Link>
+          </Nav>
+          <Nav>
             <ProfileButton />
-              {user ? (
-                <Nav.Link href="/" onClick={logout}>Logout</Nav.Link>
-              ) : (
-                <Nav.Link href="/register">Register</Nav.Link>
-              )}
-            </Nav>
-            </Navbar.Collapse>
-        </Container>
+            {user ? (
+              <Nav.Link href="/" onClick={logout}>Logout</Nav.Link>
+            ) : (
+              <Nav.Link href="/register">Register</Nav.Link>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   )
 }
