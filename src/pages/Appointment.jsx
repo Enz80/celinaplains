@@ -23,9 +23,9 @@ const Appointment = () => {
           duration: "1.4"
         }}
     >
-        <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
+        <img src={bg} alt="Background Image" className="absolute w-screen bg-cover"/>
         <DashboardNav />
-        <div className="pt-[100px] flex justify-center">
+        <div className="pt-[100px] pb-5 flex justify-center">
             <AppointmentForm />
         </div>
     </motion.div>
