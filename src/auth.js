@@ -3,22 +3,13 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-  //temporary
-  apiKey: "AIzaSyAuQbzc0rbJfRH1G_Lh-9XoYI3ynX2N4hc",
-  authDomain: "celina-plains-45b6c.firebaseapp.com",
-  projectId: "celina-plains-45b6c",
-  storageBucket: "celina-plains-45b6c.appspot.com",
-  messagingSenderId: "700532700747",
-  appId: "1:700532700747:web:93043c8708797f5e957fce",
-  measurementId: "G-PTMMVH9LVS"
-
-  // "apiKey": "AIzaSyDgUhoEXbNN0srYqKEnMGB-sxLUvefDCAY",
-  // "authDomain": "celina-plains.firebaseapp.com",
-  // "projectId": "celina-plains",
-  // "storageBucket": "celina-plains.appspot.com",
-  // "messagingSenderId": "548419353377",
-  // "appId": "1:548419353377:web:2e189f24b9005975451c60",
-  // "measurementId": "G-JHF5KF4110"
+  "apiKey": "AIzaSyDgUhoEXbNN0srYqKEnMGB-sxLUvefDCAY",
+  "authDomain": "celina-plains.firebaseapp.com",
+  "projectId": "celina-plains",
+  "storageBucket": "celina-plains.appspot.com",
+  "messagingSenderId": "548419353377",
+  "appId": "1:548419353377:web:2e189f24b9005975451c60",
+  "measurementId": "G-JHF5KF4110"
 };
 
 const app = firebase.initializeApp(firebaseConfig);
