@@ -9,15 +9,12 @@ const ContactUsForm = () => {
       event.preventDefault();
   
       //change to contact-Us
-      const apiUrl = 'https://celinaplains-api.onrender.com/make-appointment';
+      const apiUrl = 'https://celinaplains-api.onrender.com/contact-us';
   
       try {
         const response = await axios.post(apiUrl, {
           email,
-          phoneNumber,
-          appointmentTime,
           message,
-          appointmentStatus
         });
   
         // Handle the response (e.g., display a success message, navigate to another page, etc.)

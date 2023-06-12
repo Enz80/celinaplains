@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/celina.png';
-import bg from "../assets/bg-1.jpg";
 import { motion } from "framer-motion";
 
 function RegisterPage() {
