@@ -10,6 +10,7 @@ const MonthlyDuesDisplay = () => {
     // Initialize Firebase app (assuming you've already done this)
     const db = app.firestore();
 
+    
     // Fetch the monthly dues data from Firestore
     db.collection('users')
       .get()
@@ -88,7 +89,8 @@ const MonthlyDuesDisplay = () => {
                 const monthlyDue = duesByDate[month] || 0;
                 return (
                   <td key={i} className="px-4 py-2 text-gray-600 border border-gray-500">
-                  ₱{monthlyDue}
+                  {monthlyDue == "100"? "Paid": null}
+                  {/* ₱{monthlyDue} */}
                   </td>
                 );
               })}

@@ -1,97 +1,87 @@
-import React, { useEffect } from 'react'
-import BarChartContainer from './BarChartContainer'
-import moment from 'moment'
+import React, { useEffect, useState } from 'react';
+import BarChartContainer from './BarChartContainer';
 import { app } from '../auth.js';
+import moment from 'moment';
 
-const db = app.firestore()
-
-const getMontlyPaidDues = async (req,res) => {
-    try {
-        const paidDuesSnapshot =  await db.collection("users").get()
-        const paidDues =  paidDuesSnapshot.docs.map((doc)=>{doc.data()});
-
-        //add condition here what is to return
-        
-
-
-
-        //perform aggregation
-        const montlyPaidDues = paidDues.reduce((acc, dues)=> {
-            const createdAt = moment(dues.createAt.toDate());
-            const year = createdAt.year();
-            const month = createdAt.month();
-
-            const existingEntry = acc.find((entry)=> {entry.year === year && entry.month === month});
-            if (existingEntry) {
-                existingEntry.count++;
-            } else {
-                acc.push({year, month,count:1});
-            }
-
-            return acc;
-        }, [])
-
-        montlyPaidDues.sort((a,b)=>{
-            if (a.year !== b.year) {
-                return b.year - a.year;
-            } else {
-                return b.month - a.moment;
-            }
-        });
-
-        const limitedMontlyPaidDues = montlyPaidDues.slice(0,6)
-
-        const formattedMontlyPaidDues = limitedMontlyPaidDues.map(({year, month, count})=>{
-            const date = moment().month(month-1).year(year).format('MMM Y');
-            return {date, count};
-
-        })
-
-        return {montlyPaidDues: formattedMontlyPaidDues}
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-const data = [
-    {
-        date: 'Jan 2023',
-        count: 50
-    },
-    {
-        date: 'Feb 2023',
-        count: 70
-    },
-    {
-        date: 'Mar 2023',
-        count: 25
-    },
-    {
-        date: 'Apr 2023',
-        count: 14
-    },
-    {
-        date: 'May 2023',
-        count: 10
-    },
-    {
-        date: 'Jun 2023',
-        count: 2
-    },
-]
+const db = app.firestore();
 
 const ChartContainer = () => {
+    const [data1stHalf, setData1] = useState([]);
+    const [data2stHalf, setData2] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const usersSnapshot = await db.collection("users").get();
+                const result = {};
+
+                usersSnapshot.forEach((doc) => {
+                    const user = doc.data();
+                    const duesByDate = user.duesByDate;
+                    console.log(duesByDate);
+                    for (const date in duesByDate) {
+                        if (duesByDate[date] === "100" || parseInt(duesByDate[date]) >= "100") {
+                            const month = moment(date, "MM").format("MMM");
+                            const year = moment().year();
+                            const formattedDate = `${month} ${year}`;
+                            if (result[formattedDate]) {
+                                result[formattedDate]++;
+                            } else {
+                                result[formattedDate] = 1;
+                            }
+                        }
+                    }
+
+                });
+                const today = new Date()
+                const currentMonth = today.getMonth() + 1;
+                
+                //get data consist of month and count
+                const formattedData = Object.keys(result)
+                .map((date) => ({
+                    date,
+                    count: result[date],
+                }))
+
+                //arrange date
+                .sort((b, a) => {
+                    const dateA = moment(a.date, "MMM YYYY");
+                    const dateB = moment(b.date, "MMM YYYY");
+                    return dateB.diff(dateA);
+                })
+                //limit array to past 6 months
+                const sixMonths = formattedData.slice(0, 6);
+                const secndSixMonths = formattedData.slice(6, 12);
+        
+                setData1(sixMonths);
+                setData2(secndSixMonths)
+            } catch (error) {
+                console.error('Error retrieving data:', error);
+            }
+        }
+
+        fetchData();
+    }, []);
+
     return (
-        <div className='pt-[100px]'>
-            <div className='bg-white m-5 rounded-xl p-5'>
-                <div className='text-[40px] text-center '><strong>Monthly Pay of Dues</strong></div>
-                <div className='flex !flex-wrap justify-center'>
-                    <BarChartContainer data={data} />
+        <div className="pt-[100px]">
+            <div className="bg-white m-5 rounded-xl p-5">
+                <div className="text-[40px] text-center">
+                    <strong>Monthly Pay of Dues</strong>
+                    <h2>January to June</h2>
+                </div>
+                <div className="flex flex-wrap justify-center">
+                    <BarChartContainer data={data1stHalf} />
+                </div>
+                <div className="text-[40px] text-center">
+                    <h2 className='mt-5 pt-5'>July to December</h2>
+                </div>
+                <div className="flex flex-wrap justify-center">
+                    <BarChartContainer data={data2stHalf} />
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ChartContainer
+export default ChartContainer;
