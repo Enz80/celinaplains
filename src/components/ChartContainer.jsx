@@ -51,7 +51,7 @@ const ChartContainer = () => {
                 })
                 //limit array to past 6 months
                 const sixMonths = formattedData.slice(0, 6);
-                const secndSixMonths = formattedData.slice(7, 12);
+                const secndSixMonths = formattedData.slice(6, 12);
         
                 setData1(sixMonths);
                 setData2(secndSixMonths)
