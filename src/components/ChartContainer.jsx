@@ -6,7 +6,8 @@ import moment from 'moment';
 const db = app.firestore();
 
 const ChartContainer = () => {
-    const [data, setData] = useState([]);
+    const [data1stHalf, setData1] = useState([]);
+    const [data2stHalf, setData2] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
@@ -32,19 +33,28 @@ const ChartContainer = () => {
                     }
 
                 });
-
-                const formattedData = Object.keys(result).map((date) => ({
+                const today = new Date()
+                const currentMonth = today.getMonth() + 1;
+                
+                //get data consist of month and count
+                const formattedData = Object.keys(result)
+                .map((date) => ({
                     date,
                     count: result[date],
-                }));
+                }))
 
-                formattedData.sort((b, a) => {
+                //arrange date
+                .sort((b, a) => {
                     const dateA = moment(a.date, "MMM YYYY");
                     const dateB = moment(b.date, "MMM YYYY");
                     return dateB.diff(dateA);
-                });
-                console.log(formattedData);
-                setData(formattedData);
+                })
+                //limit array to past 6 months
+                const sixMonths = formattedData.slice(0, 6);
+                const secndSixMonths = formattedData.slice(7, 12);
+        
+                setData1(sixMonths);
+                setData2(secndSixMonths)
             } catch (error) {
                 console.error('Error retrieving data:', error);
             }
@@ -58,9 +68,16 @@ const ChartContainer = () => {
             <div className="bg-white m-5 rounded-xl p-5">
                 <div className="text-[40px] text-center">
                     <strong>Monthly Pay of Dues</strong>
+                    <h2>January to June</h2>
                 </div>
                 <div className="flex flex-wrap justify-center">
-                    <BarChartContainer data={data} />
+                    <BarChartContainer data={data1stHalf} />
+                </div>
+                <div className="text-[40px] text-center">
+                    <h2 className='mt-5 pt-5'>July to December</h2>
+                </div>
+                <div className="flex flex-wrap justify-center">
+                    <BarChartContainer data={data2stHalf} />
                 </div>
             </div>
         </div>
