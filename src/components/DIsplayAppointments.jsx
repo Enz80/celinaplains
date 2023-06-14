@@ -36,7 +36,7 @@ const DisplayAppointments = () => {
       });
 
      // Delete the appointment from the "appointments" collection
-      await axios.delete(`https://celinaplains-api.onrender.com/delete-appointment/${appointmentId}`);
+     // await axios.delete(`https://celinaplains-api.onrender.com/delete-appointment/${appointmentId}`);
 
       // Fetch the updated appointments list
       fetchAppointments();
