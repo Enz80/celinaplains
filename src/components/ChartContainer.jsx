@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import BarChartContainer from './BarChartContainer';
 import { app } from '../auth.js';
 import moment from 'moment';
+import PieChartComponent from './PieChartComponent';
 
 const db = app.firestore();
 
@@ -62,7 +63,12 @@ const ChartContainer = () => {
 
         fetchData();
     }, []);
-
+    // const data = [
+    //     { name: 'Group A', value: 1000},
+    //     { name: 'Group B', value: 300 },
+    //     { name: 'Group C', value: 300 },
+    //     { name: 'Group D', value: 200 },
+    //   ];
     return (
         <div className="pt-[100px]">
             <div className="bg-white m-5 rounded-xl p-5">
@@ -72,6 +78,7 @@ const ChartContainer = () => {
                 </div>
                 <div className="flex flex-wrap justify-center">
                     <BarChartContainer data={data1stHalf} />
+                    {/* <PieChartComponent data={data}/> */}
                 </div>
                 <div className="text-[40px] text-center">
                     <h2 className='mt-5 pt-5'>July to December</h2>
