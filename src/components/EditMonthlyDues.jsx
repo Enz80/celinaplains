@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { app } from '../auth.js';
 import { motion } from 'framer-motion';
+import { FaUserTie } from 'react-icons/fa'
 
 const EditMonthlyDues = ({ userId }) => {
   const [monthlyDues, setMonthlyDues] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const db = app.firestore();
@@ -16,6 +18,7 @@ const EditMonthlyDues = ({ userId }) => {
       .then((doc) => {
         if (doc.exists) {
           setMonthlyDues(doc.data().duesByDate || {});
+          setUser(doc.data())
         }
         setIsLoading(false);
       })
@@ -83,8 +86,20 @@ const EditMonthlyDues = ({ userId }) => {
   };
 
   return (
-    <div className="container px-4 pb-8 pt-[100px] mx-auto">
-      <h2 className="mb-4 text-lg font-medium text-gray-600">Edit Monthly Dues</h2>
+    <div className="container pb-8 pt-[50px]">
+      <div className='bg-white m-5'>
+        <div className='flex items-center'>
+          <FaUserTie className='text-9xl mr-5' />
+          <div className='flex flex-col'>
+            <p className='pb-2'><strong className='text-xl'>Id: </strong>{userId} </p> 
+            <p className='pb-2'><strong className='text-xl'>Email: </strong> {user.userFullname} </p> 
+            <p className='pb-2'><strong className='text-xl'>Phone Number: </strong>{user.phoneNumber} </p> 
+            <p className='pb-2'><strong className='text-xl'>Address: </strong> {user.address}</p> 
+          </div>
+        </div>
+      </div>
+
+      {/* <h2 className="mb-4 text-lg font-medium text-gray-600">Edit Monthly Dues</h2> */}
       <div className="p-6 bg-white rounded-lg shadow-md">
         <form>
           <div className="grid grid-cols-2 gap-4">
@@ -96,13 +111,13 @@ const EditMonthlyDues = ({ userId }) => {
             onClick={handleSave}
             disabled={isSaving}
             className="px-4 py-2 text-white bg-blue-500 rounded-md shadow-md"
-            >
-              {isSaving ? 'Saving...' : 'Save Changes'}
-            </button>
+          >
+            {isSaving ? 'Saving...' : 'Save Changes'}
+          </button>
         </form>
       </div>
     </div>
-);
+  );
 };
 
 export default EditMonthlyDues;
