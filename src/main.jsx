@@ -71,7 +71,7 @@ const router = createBrowserRouter(
       element: <AppointmentFormUser />,
     },
     {
-      path: '/contact',
+      path: '/contact-us',
       element: <ContactPage />,
     },
     {

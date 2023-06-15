@@ -41,7 +41,7 @@ const UserDashboard = () => {
                   <h2 className="mb-2 text-lg font-bold">{item.postTitle}</h2>
                   <p className="mb-2 font-medium text-slate-800">{item.postCaption}</p>
                   {item.createdAt && (
-                    <p className="text-gray-500 text-md">
+                    <p className="text-white text-md">
                       {new Date(item.createdAt).toLocaleString()}
                     </p>
                   )}
