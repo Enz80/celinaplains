@@ -44,7 +44,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="font-semibold text-black me-auto font-poppins">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/contact">Contact us</Nav.Link>
+            <Nav.Link href="/contact-us">Contact us</Nav.Link>
             <Nav.Link href="/newsfeed">News Feed</Nav.Link>
           </Nav>
           <Nav>

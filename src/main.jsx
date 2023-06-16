@@ -18,6 +18,7 @@ import UserDashboardPage from './pages/UserDashboardPage.jsx'
 import RegisterUser from './components/RegisterUser.jsx'
 import CalendarPage from './pages/CalendarPage.jsx'
 import StatsPage from './pages/StatsPage.jsx'
+import AppointmentFormUser from './pages/AppointmentFormUser.jsx'
 
 const userAuth = () => {
   const [user, setUser] = useState(null);
@@ -66,7 +67,11 @@ const router = createBrowserRouter(
       element: <Appointment />,
     },
     {
-      path: '/contact',
+      path: "/appointment-user",
+      element: <AppointmentFormUser />,
+    },
+    {
+      path: '/contact-us',
       element: <ContactPage />,
     },
     {

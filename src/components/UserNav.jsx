@@ -44,13 +44,14 @@ const DashboardNav = () => {
         <Navbar.Collapse id="basic-navbar-nav">
 
           <Nav className="me-auto">
-            <Nav.Link href="/contact">Contact us</Nav.Link>
+          {user? null :
+            <Nav.Link href="/contact-us">Contact us</Nav.Link>
+          }
             <Nav.Link href="/appointment-user">Appointment</Nav.Link>
           </Nav>
           <Nav>
 
             <ProfileButton />
-
             {user ? (
               <Nav.Link href="/" onClick={logout}>Logout</Nav.Link>
             ) : (
