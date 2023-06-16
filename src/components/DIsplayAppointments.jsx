@@ -20,9 +20,18 @@ const DisplayAppointments = () => {
     }
   };
 
+  const handleDelete = async (appointmentId) => {
+    try {
+      if (!appointmentId) return console.log('cannot find appointment ID');
+
+      await axios.delete(`https://celinaplains-api.onrender.com/delete-appointment/${appointmentId}`);
+      
+    } catch (error) {
+      console.error('Error making appointment as delete:', error);
+    }
+   }
   const handleMakeAsDone = async (appointmentId, email, phoneNumber, appointmentTime, message) => {
     try {
-
       const appointmentStatus = "accepted"
       // Move the appointment to a different collection (e.g., "done-appointments")
       await axios.post('https://celinaplains-api.onrender.com/move-appointment', {
@@ -69,7 +78,7 @@ const DisplayAppointments = () => {
                   <hr />
                   <button
                     type="submit"
-                    className="p-1 my-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-500"
+                    className="p-1 my-2 border-2 border-gray-300 mr-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-500"
                     onClick={() =>
                       handleMakeAsDone(
                         appointment.id,
@@ -80,7 +89,16 @@ const DisplayAppointments = () => {
                       )
                     }
                   >
-                    Make as Done
+                    Accept
+                  </button>
+                  <button
+                    type="submit"
+                    className="p-1 my-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-500"
+                    onClick={() =>
+                      handleDelete(appointment.id)
+                    }
+                  >
+                    Delete
                   </button>
                 </li>
               ))}
